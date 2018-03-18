@@ -44,7 +44,7 @@ abstract class Colorable {
                 g.setColor(Color.MAGENTA);
                 break;
             case 4 :
-                g.setColor(Color.MAGENTA);
+                g.setColor(Color.YELLOW);
                 break;
             case 0 :
                 g.setColor(Color.WHITE);
