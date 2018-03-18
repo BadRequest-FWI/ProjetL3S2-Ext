@@ -41,10 +41,10 @@ abstract class Colorable {
                 g.setColor(Color.BLUE);
                 break;
             case 3 :
-                g.setColor(Color.CYAN);
+                g.setColor(Color.MAGENTA);
                 break;
             case 4 :
-                g.setColor(Color.yellow);
+                g.setColor(Color.MAGENTA);
                 break;
             case 0 :
                 g.setColor(Color.WHITE);
