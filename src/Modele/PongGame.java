@@ -3,6 +3,9 @@ package Modele;
 import Vue.PongVue;
 
 public class PongGame {
+    /**
+     * Modele du jeu de pong
+     */
 
     public static int width = 1280, height = 700;
     private PongVue vue;
@@ -11,21 +14,22 @@ public class PongGame {
         this.vue = view;
     }
 
-
-
+    //////////////////////lancement du jeu joueur vs joueur///////////////////
     public void start(boolean ia){
         vue.initPlayer(this,ia);
     }
 
+    ///////////////////////lancement du jeu joueur vs ia/////////////////////
     public void start(boolean ia,int level){
         vue.initPlayer(this,ia,level);
     }
 
-
+    //////////////mise a jour dynamique de la balle (deplacement, collision) pour le controleur//////////////
     public void BallUpdate(){
         vue.getBalle().balleUpdate(vue.getPlayer1(),vue.getPlayer2());
     }
 
+    ////////////mise a jour dynamique du joueur (deplacement) pour le controleur/////////////////
     public void playerUpdate(boolean player,int action){
         if(player) {
             switch (action) {

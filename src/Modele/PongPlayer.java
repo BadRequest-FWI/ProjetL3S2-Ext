@@ -3,6 +3,9 @@ package Modele;
 import java.awt.*;
 
 public class PongPlayer extends Colorable {
+    /**
+     * Modele du joueur
+     */
 
     protected int playerNumber;
     protected int xPos, yPos, width = 50, height = 250;
@@ -22,8 +25,7 @@ public class PongPlayer extends Colorable {
         this.yPos = PongGame.height / 2 - this.height /2;
     }
 
-
-
+    /////////////////gestion du deplacement du joueur////////////////////
     public void deplace(boolean up) {
 
         if (up){
@@ -44,6 +46,7 @@ public class PongPlayer extends Colorable {
         g.fillRect(xPos, yPos, width, height);
     }
 
+    ////////////////////Fontion servant pour BotPlayer///////////////
     public void update(){
 
     }

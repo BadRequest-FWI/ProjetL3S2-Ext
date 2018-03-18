@@ -9,7 +9,9 @@ import java.io.File;
 import java.io.IOException;
 
 public class EndGameVue extends JPanel {
-
+    /**
+     * Affiche la fenêtre de fin de partie
+     */
     private static final long serialVersionUID = 1L;
     public JPanel header = new JPanel();
     public JPanel footer = new JPanel();
@@ -19,6 +21,7 @@ public class EndGameVue extends JPanel {
     private Dimension dim = new Dimension (110,30);
 
     public EndGameVue(boolean result){
+        /*******Composants settings**********/
         JLabel winner;
         if (result){
             winner = new JLabel("Victoire du Joueur 1 ");
@@ -32,7 +35,7 @@ public class EndGameVue extends JPanel {
         ret.setPreferredSize(dim);
         jouer.setPreferredSize(dim);
         quit.setPreferredSize(dim);
-
+        /*****************mise en place des composants pour l'affichage**************/
         this.setLayout(new BorderLayout());
         header.setLayout(new GridBagLayout());
         footer.setLayout(new GridBagLayout());
@@ -55,6 +58,7 @@ public class EndGameVue extends JPanel {
         this.add(header, BorderLayout.NORTH);
     }
 
+    ///////////////////image background///////////////
     public void paintComponent(Graphics g){
         try {
             Image img = ImageIO.read(new File("Image/ggwp.jpg"));

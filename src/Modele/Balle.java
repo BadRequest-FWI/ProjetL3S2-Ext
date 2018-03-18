@@ -4,6 +4,10 @@ import java.awt.*;
 import java.util.Random;
 
 public class Balle extends Colorable{
+    /**
+     * Modele de la balle
+     * Gestion des colisions
+     */
 
     private int xPos, yPos, width = 25, height = 25;
     private int mouvementX, mouvementY;
@@ -18,11 +22,14 @@ public class Balle extends Colorable{
         lancer();
     }
 
+    ///////////////////Mise a jour dynamique de la balle/////////////////////
     public void balleUpdate(PongPlayer j1, PongPlayer j2){
 
+        /**deplacement**/
         this.xPos += mouvementX * vitesse;
         this.yPos += mouvementY * vitesse;
 
+        /**Collision avec les bordures latéral du plateau**/
         if (this.yPos + height - mouvementY > PongGame.height || this.yPos + mouvementY < 0){
             if (this.mouvementY < 0){
                 this.yPos = 0;
@@ -41,6 +48,7 @@ public class Balle extends Colorable{
             }
         }
 
+        /**Collision joueur**/
         if (collision(j1) == 1){
             if (first) {
                 first=false;
@@ -66,7 +74,7 @@ public class Balle extends Colorable{
             }
             this.couleurRandom();
         }
-
+        /**Point marque**/
         if (collision(j1) == 2) {
             resetPlayer(j1,j2);
             j2.score++;
@@ -79,6 +87,7 @@ public class Balle extends Colorable{
 
     }
 
+    /**Gestion du lancement de la balle**/
     private void lancer() {
         first = true;
         this.couleurRandom();
@@ -97,6 +106,7 @@ public class Balle extends Colorable{
         }
     }
 
+    //////////Fonctions de changement de couleur des joueurs////////////////
     public void resetPlayer(PongPlayer j1, PongPlayer j2){
         j1.resetCouleur();
         j2.resetCouleur();
@@ -107,7 +117,9 @@ public class Balle extends Colorable{
         j2.couleurRandom();
     }
 
+    /////////////gestion collision balle joueur///////////////
     public int collision (PongPlayer p){
+        /**Controle de la position et de la couleur de la balle par rapport au joueur**/
 
         if (this.xPos < p.xPos + p.width && this.xPos + width > p.xPos && this.yPos < p.yPos + p.height && this.yPos + height > p.yPos && this.colorContact(p)){
             return 1;
@@ -117,6 +129,7 @@ public class Balle extends Colorable{
         return 0;
     }
 
+    ////////////////getters & setters//////////////////////////////
     public int getyPos() {
         return yPos;
     }

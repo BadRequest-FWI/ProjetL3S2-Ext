@@ -8,6 +8,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PongVue extends JPanel {
+    /**
+     * Affiche la fenêtre du jeu
+     */
 
     private static final long serialVersionUID = 1L;
     public static int width = 1280, height = 700;
@@ -19,12 +22,14 @@ public class PongVue extends JPanel {
 
     }
 
+    ////////////////gestion de l'affichage dynamique///////////
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         render((Graphics2D) g);
     }
+
     public void render(Graphics2D g) {
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, width, height);
@@ -42,6 +47,7 @@ public class PongVue extends JPanel {
         balle.render(g);
     }
 
+    ///////////getters & setters//////////////////
     public PongPlayer getPlayer1() {
         return player1;
     }
@@ -54,6 +60,8 @@ public class PongVue extends JPanel {
         return balle;
     }
 
+
+    //////////initialisation des joueurs et de la balle sur le plateau///////////
     public void initPlayer(PongGame pongGame, boolean ia){
         player1 = new PongPlayer(1);
         if (!ia) {

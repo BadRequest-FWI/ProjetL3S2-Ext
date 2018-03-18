@@ -2,7 +2,6 @@ package Controleur;
 
 import Modele.PongGame;
 import Vue.*;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +9,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Control implements ActionListener, KeyListener {
+    /*
+     * Controleur principale de l'appli
+     * Fait le lien entre l'affichage (package vue) et les données (package modele)
+     */
     private Window window;
     private AcceuilVue acceuilVue;
     private GameVue gameVue;
@@ -37,7 +40,7 @@ public class Control implements ActionListener, KeyListener {
         levelBotVue = new LevelBotVue();
 
     }
-
+    ///////////mise des differents bouton sur ecoute par la controleur///////////
     public void initButton() {
         //AcceuilVue
         AcceuilVue.aide.addActionListener(this);
@@ -60,7 +63,7 @@ public class Control implements ActionListener, KeyListener {
         LevelBotVue.hard.addActionListener(this );
         LevelBotVue.ret.addActionListener(this);
     }
-
+    ///////Lancement d'une partie joueur contre joueur////////////
     public void startGame(boolean ia){
         pongVue = new PongVue();
         pongGameModel = new PongGame(pongVue);
@@ -72,7 +75,7 @@ public class Control implements ActionListener, KeyListener {
         pongVue.requestFocusInWindow();
         window.start();
     }
-
+    //////////Lancement d'une partie joueur contre ia///////////
     public void startGame(boolean ia,int level){
         pongVue = new PongVue();
         pongGameModel = new PongGame(pongVue);
@@ -85,6 +88,8 @@ public class Control implements ActionListener, KeyListener {
         window.start();
     }
 
+
+    ///////////Gestion des evenements//////////////
     @Override
     public void actionPerformed(ActionEvent e) {
         //AcceuilVue
@@ -148,6 +153,8 @@ public class Control implements ActionListener, KeyListener {
         }
     }
 
+    ///////////////Gestion des commandes utilisateurs/////////////////
+
     @Override
     public void keyTyped(KeyEvent e) {
     }
@@ -186,6 +193,7 @@ public class Control implements ActionListener, KeyListener {
                 if (!ia) pongGameModel.playerUpdate(false,0);
                 break;
             case KeyEvent.VK_ESCAPE:
+                //////Pause en jeu et menu pause///////
                 String[]choix ={"Reprendre","Menu Principale","Quitter"};
                 JOptionPane pause = new JOptionPane();
                 if(ingame){
@@ -225,6 +233,7 @@ public class Control implements ActionListener, KeyListener {
 
     }
 
+    //////////////////////////////Getters & setters///////////////////////////
     public AcceuilVue getAcceuilVue() {
         return acceuilVue;
     }

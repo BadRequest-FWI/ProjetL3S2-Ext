@@ -9,6 +9,9 @@ import java.io.File;
 import java.io.IOException;
 
 public class GameVue extends JPanel {
+    /**
+     * Affiche la fenêtre de selection du mode de jeu
+     */
 
     private static final long serialVersionUID = 1L;
     public JPanel body = new JPanel();
@@ -18,11 +21,13 @@ public class GameVue extends JPanel {
     public static FlatButton pve = new FlatButton ("Joueur VS IA ");
 
     public GameVue (){
+        /*******Composants settings**********/
         footer.setOpaque(false);
         body.setOpaque(false);
         pvp.setPreferredSize(new Dimension(500,50));
         pve.setPreferredSize(new Dimension (500,50));
         ret.setPreferredSize(new Dimension (100,30));
+        /*****************mise en place des composants pour l'affichage**************/
         this.setLayout(new BorderLayout());
         body.setLayout(new GridBagLayout());
         footer.setLayout(new GridBagLayout());
@@ -42,6 +47,7 @@ public class GameVue extends JPanel {
         this.add(footer, BorderLayout.SOUTH);
     }
 
+    ///////////////////image background///////////////
     public void paintComponent(Graphics g){
         try {
             Image img = ImageIO.read(new File("Image/46.jpg"));

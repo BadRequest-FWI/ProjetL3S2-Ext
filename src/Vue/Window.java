@@ -5,9 +5,12 @@ import Controleur.Control;
 import javax.swing.*;
 
 public class Window extends JFrame {
+    /**
+     * Fenetre principale
+     */
 
     private static final long serialVersionUID = 1L;
-    protected String titre = "";
+    protected String titre = "Color Pong";
     protected static int width = 1295;
     protected static int height = 738;
     private Timer timer;
@@ -24,6 +27,8 @@ public class Window extends JFrame {
         this.add(ctrl.getAcceuilVue());
     }
 
+    ///////////////////////gestion du timer///////////////////////////////
+
     public void start (){
         timer.start();
     }
@@ -32,6 +37,7 @@ public class Window extends JFrame {
         timer.stop();
     }
 
+    //////////////////////nouvel affichage/////////////////////////////
     public void update(JPanel p){
         this.setContentPane (p);
         this.revalidate();

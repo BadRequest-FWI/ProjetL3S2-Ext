@@ -9,8 +9,11 @@ import java.io.File;
 import java.io.IOException;
 
 public class LevelBotVue extends JPanel {
+    /**
+     * Affiche la fenêtre de selection de l'ia en jeu
+     */
 
-    private static final long serialVersionUID = 1L;;
+    private static final long serialVersionUID = 1L;
     public JPanel body = new JPanel();
     public JPanel footer = new JPanel();
     public static FlatButton easy = new FlatButton ("Facile");
@@ -20,12 +23,14 @@ public class LevelBotVue extends JPanel {
     private Dimension dim = new Dimension (500,50);
 
     public LevelBotVue (){
+        /*******Composants settings**********/
         footer.setOpaque(false);
         body.setOpaque(false);
         easy.setPreferredSize(dim);
         medium.setPreferredSize(dim);
         hard.setPreferredSize(dim);
         ret.setPreferredSize(new Dimension (100,30));
+        /*****************mise en place des composants pour l'affichage**************/
         this.setLayout(new BorderLayout());
         body.setLayout(new GridBagLayout());
         footer.setLayout(new GridBagLayout());
@@ -49,6 +54,7 @@ public class LevelBotVue extends JPanel {
 
     }
 
+    ///////////////////image background///////////////
     public void paintComponent(Graphics g){
         try {
             Image img = ImageIO.read(new File("Image/46.jpg"));

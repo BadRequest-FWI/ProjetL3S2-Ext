@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class FlatButton extends JButton {
     /**
-     * Custom button (flat design)
+     * Bouton personnalise (flat design)
      */
     public FlatButton(String str){
         super(str);
